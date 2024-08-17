@@ -70,9 +70,11 @@ async def consol_command(messe):
 
 @disp.message_handler(text="Купить")
 async def get_buying_list(message):
-    for num in range(1, len(products)):
-        with open(f"tabl_{num}.png", 'rb') as img:
-            await message.answer_photo(img, f"Название:Product{num} | Описание: {num} | Цена {num * 100}")
+    i = 1
+    for num in all_products_1:
+        with open(f"tablet_{i}.png", 'rb') as img:
+            i += 1
+            await message.answer_photo(img, num)
     await message.answer("Выберите продукт для покупки:", reply_markup=INKboard_2)
 
 
